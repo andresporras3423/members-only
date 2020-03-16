@@ -15,7 +15,13 @@ class SessionsController < ApplicationController
     else
     # If user's login doesn't work, send them back to the login form.
     flash[:danger] = 'Invalid email/password combination' # Not quite right!
-    render '/login'
+    render 'new'
     end
   end
+
+  def destroy
+    log_out if logged_in?
+    redirect_to '/login'
+  end
+
 end
