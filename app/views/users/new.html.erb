@@ -1,6 +1,6 @@
-<% if flash[:danger] %>
-  <p><%= flash[:danger] %></p>
-<% end %>
+
+<p><%= flash[:danger] %></p>
+
 
 <%= form_tag '/signup' do %>
   Name: <%= text_field_tag :name %>

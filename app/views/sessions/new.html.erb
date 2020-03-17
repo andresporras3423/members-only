@@ -1,8 +1,6 @@
 <h1>Login</h1>
 
-<% if flash[:danger] %>
-  <p><%= flash[:danger] %></p>
-<% end %>
+<p><%= flash[:danger] %></p>
 
 <%= form_tag '/login' do %>
 
