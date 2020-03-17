@@ -1,5 +1,6 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<% if flash[:danger] %>
+  <p><%= flash[:danger] %></p>
+<% end %>
 
 <%= form_tag '/signup' do %>
   Name: <%= text_field_tag :name %>
