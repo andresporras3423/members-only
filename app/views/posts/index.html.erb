@@ -1,0 +1,19 @@
+<table>
+<tr>
+    <th>Comment</th>
+    <% if current_user %>
+    <th>User</th>
+    <%end%>
+</tr>
+<%@posts.each do |post|%>
+<tr>
+<td><%=post.comment%></td>
+<% if current_user %>
+  <td><%=User.find(post.user_id).name%></td>
+<% end %>
+</tr>
+<%end%>
+</table>
+<% if current_user %>
+  <%= link_to "Add post", '/add_comment' %>
+<% end %>
