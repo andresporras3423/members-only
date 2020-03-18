@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  attr_accessor :remember_token
-  before_create :record_signup
+  before_validation :record_signup, on: :create
+  # before_create :record_signup
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
@@ -17,19 +17,19 @@ class User < ApplicationRecord
   has_many :posts
 
   # Returns a random token.
-  def self.new_token
-    SecureRandom.urlsafe_base64
-  end
+  # def self.new_token
+  #   SecureRandom.urlsafe_base64
+  # end
 
   # Remembers a user in the database for use in persistent sessions.
-  def remember
-    self.remember_token = User.new_token
-    update_attribute(:remember_token, User.digest(remember_token))
-  end
+  # def remember
+  #   self.remember_token = User.new_token
+  #   update_attribute(:remember_token, User.digest(remember_token))
+  # end
 
   # Returns true if the given token matches the digest.
   def authenticated?(remember_token)
-    BCrypt::Password.new(remember_token).is_password?(remember_token)
+    self.remember_token == remember_token
   end
 
   private
