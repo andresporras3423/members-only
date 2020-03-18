@@ -8,8 +8,6 @@ class UsersController < ApplicationController
                         email: params[:email],
                         password: params[:password],
                         password_confirmation: params[:password_confirmation])
-    # @user = User.new(user_params)
-    # @user.password = params[:password]
 
     if @user.valid?
       @user.save
@@ -28,9 +26,4 @@ class UsersController < ApplicationController
     flash[:danger] = 'Please log in.'
     redirect_to login_url
   end
-
-  # private
-  #   def user_params
-  #     params.require(:user).permit(:name, :email, :password, :password_confirmation)
-  #   end
 end

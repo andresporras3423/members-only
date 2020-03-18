@@ -16,17 +16,6 @@ class User < ApplicationRecord
   end
   has_many :posts
 
-  # Returns a random token.
-  # def self.new_token
-  #   SecureRandom.urlsafe_base64
-  # end
-
-  # Remembers a user in the database for use in persistent sessions.
-  # def remember
-  #   self.remember_token = User.new_token
-  #   update_attribute(:remember_token, User.digest(remember_token))
-  # end
-
   # Returns true if the given token matches the digest.
   def authenticated?(remember_token)
     self.remember_token == remember_token

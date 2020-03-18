@@ -9,9 +9,6 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(comment: params[:comment], user_id: current_user.id)
-    # @user = User.new(user_params)
-    # @user.password = params[:password]
-
     if @post.valid?
       @post.save
       redirect_to '/'
