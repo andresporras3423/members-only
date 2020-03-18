@@ -1,0 +1,12 @@
+
+<p><%= flash[:danger] %></p>
+
+
+<%= form_tag '/signup' do %>
+  Name: <%= text_field_tag :name %>
+  Email: <%= text_field_tag :email %>
+  Password: <%= password_field_tag :password %>
+  Password Confirmation: <%= password_field_tag :password_confirmation %>
+  <%= submit_tag "Submit" %>
+
+<% end %>

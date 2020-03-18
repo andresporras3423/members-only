@@ -1,0 +1,7 @@
+<p><%= flash[:danger] %></p>
+
+
+<%= form_tag '/add_comment' do %>
+  Comment: <%= text_area_tag :comment, '', rows: 10, cols: 25 %> 
+  <%= submit_tag "Submit" %>
+<% end %>
